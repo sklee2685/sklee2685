@@ -1,0 +1,104 @@
+const loginForm = document.querySelector("#login-form");
+const loginButton = document.querySelector("#login-form input");
+const loginInput= document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+const link = document.querySelector("a");
+
+const HIDDEN_CLASSNAME = "hidden";
+
+function onLoginBtnSubmit(event){//현재 event라는 argument에는 지금막 벌어진 일들에 대한 정보가 있다.
+    event.preventDefault(); //preventDefault 함수는 기본적으로 실행되는 부분을 실행하지 않도록 도와줌
+    //const username=loginButton.value;// loginInput에서 입력한 값(value)를 username에 저장
+    // if (username == ""){
+    //     alert("Please write your name");
+    // }else if (username.length >15){
+    //     alert("Your name is too long.");
+    // }else{
+    //     alert("Hello "+username+"!!");
+    // } //해당 코드는 html input 태그에서 required(필수 입력 설정) 와 maxlength를 사용하면 간단하게 설정할 수 있다.
+    
+    const username= loginInput.value;
+    loginForm.classList.add(HIDDEN_CLASSNAME); //클래스 추가
+    greeting.innerText="Hello "+ username;
+    // greeting.innerText=`Hello ${username}`; //위에랑 같은 동작
+    greeting.classList.remove(HIDDEN_CLASSNAME)
+    
+}
+
+
+// function handleLinkClick(cck){
+//     cck.preventDefault();
+//     alert("click");
+// }
+
+loginForm.addEventListener("submit", onLoginBtnSubmit);
+//link.addEventListener("click",handleLinkClick);
+
+________________________________________________________
+lcoalStorage 브라우저에 무언가를 저장한 후 나중에 가져 올 수 있음.
+ex)
+localStorage.setItem("key값","value값(변수값)");
+
+lcoalStorage.setItem("username", "nico"); lcoalStorage 에 저장
+lcoalStorage.getItem("username") lcoalStorage 에 저장된 데이터를 가지고옴
+lcoalStorage.removeItem("username") lcoalStorage 에서 데이터 제거
+
+####
+const loginForm = document.querySelector("#login-form");
+const loginInput= document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+const link = document.querySelector("a");
+
+const HIDDEN_CLASSNAME = "hidden";
+
+function onLoginBtnSubmit(event){
+    event.preventDefault();    
+    const username= loginInput.value;
+    localStorage.setItem("username",username);
+    loginForm.classList.add(HIDDEN_CLASSNAME); //클래스 추가
+    greeting.innerText="Hello "+ username;
+    // greeting.innerText=`Hello ${username}`; //위에랑 같은 동작
+    greeting.classList.remove(HIDDEN_CLASSNAME)
+    
+}
+
+loginForm.addEventListener("submit", onLoginBtnSubmit);
+###
+
+________________________________________________________
+const loginForm = document.querySelector("#login-form");
+const loginInput= document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+const link = document.querySelector("a");
+
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY= "username";
+//반복 되는 변수들의 실수를 줄이기 위해 대문자로 변수를 다시 생성
+
+function onLoginBtnSubmit(event){
+    event.preventDefault();    
+    const username= loginInput.value;
+    localStorage.setItem("USERNAME_KEY",username);
+    loginForm.classList.add(HIDDEN_CLASSNAME); //클래스 추가
+    // greeting.innerText="Hello "+ username;
+    // greeting.innerText=`Hello ${username}`; //위에랑 같은 동작
+    // greeting.classList.remove(HIDDEN_CLASSNAME)
+    paintGreetings(username);
+}
+
+function paintGreetings(username){
+    greeting.innerText=`Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+} // 해당 두가지 코드가 반복됨으로 함수를 사용
+
+const saveUsername=localStorage.getItem("USERNAME_KEY");
+if (saveUsername === null){ 
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginBtnSubmit);
+}else{
+    // greeting.innerText=`Hello ${saveUsername}`;
+    // greeting.classList.remove(HIDDEN_CLASSNAME);
+    paintGreetings(saveUsername);
+}
+// null 값이면 다시 입력 받는 페이지로 돌아오고 입력 받은
+ 데이터가 있으면 새로고침을 해도 기록이 남아있음

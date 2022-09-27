@@ -2,3 +2,6 @@
 let num = 2;
 
 num % 2 ==0 ? console.log('👍') : console.log('👎')
+// 다른버전
+let result = num % 2 ==0 ? '👍':'👎';
+console.log(result);

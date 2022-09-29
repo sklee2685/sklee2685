@@ -10,7 +10,6 @@ for (let i = 0; i<5; i++){
     console.log(i);
 }
 
-
 // 반복문 제어 (continue,break)
 for (let i = 0; i < 20; i++) {
     if (i === 10) {

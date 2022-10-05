@@ -18,11 +18,11 @@ console.log(getValue(obj, 'age'));
 function addData(obj, key, value) {
     obj[key] = value;
 }
-addData(obj,'job','student');
+addData(obj, 'job', 'student');
 console.log(obj);
 
-function deleteData(obj, key){
-    delete obj[key];
+function deleteData(obj, key) {
+    delete obj[key]; // 객체의 내용 삭제 
 }
-deleteData(obj,'name');
+deleteData(obj, 'name');
 console.log(obj);

@@ -22,7 +22,7 @@ function Fruit(name,image){
     this.display =()=>{
         console.log(`${this.name}: ${this.image}`);
     }
-    return this; //생력 가능
+    return this; //생략 가능
 }
 
 const apple = new Fruit('apple','🍎');

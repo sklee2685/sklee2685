@@ -36,9 +36,7 @@ class Animal{
     }
 }
 
-class Tiger extends Animal{
-
-}
+class Tiger extends Animal{}
 
 class Dog extends Animal{
     constructor(color,ownerName){
@@ -47,6 +45,13 @@ class Dog extends Animal{
     }
     play(){
         console.log('play');
+    }
+
+    // 오버라이딩(overriding)
+    // 자식클래스에서 부모클래스의 내용을 덮어쓰기
+    eat(){
+        super.eat();
+        console.log('강아지가 무언가를 먹는다.');
     }
 }
 

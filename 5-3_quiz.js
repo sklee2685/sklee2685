@@ -4,14 +4,15 @@
  * input: ['🍌', '🥝', '🍇'], ['🍌', '🍓', '🍇', '🍓']
  * output: ['🍌','🍇']
  */
-const array3 = [];
-
-function arrayCommonality(array1,array2){
-    for(let i = 0; i <4; i++){
-        if (array1[i]==array2[i]){
-            array3.push(array1[i]);
+function arrayCommonality(input,search){
+    const array3 = [];
+    for(let i = 0; i <input.length; i++){
+        if (search.includes(input[i])){
+            array3.push(input[i]);
         }
     }
     console.log(array3);
 }
-arrayCommonality(['🍌', '🥝', '🍇'],['🍌', '🍓', '🍇', '🍓']);
+const array1 = ['🍌', '🥝', '🍇'];
+const array2 = ['🍌', '🍓', '🍇', '🍓'];
+arrayCommonality(array1,array2);

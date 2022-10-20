@@ -5,11 +5,28 @@
  * output: ['🍌', '🥝', '🍇', '🥝']
  */
 function changeFruits(input){
-    for (let i = 0; i < input.length; i++){
-        if (input[i]=='🍓'){
-            input[input.indexOf('🍓')]='🥝';
+    const chageArray = Array.from(input);
+    for (let i = 0; i < chageArray.length; i++){
+        if (chageArray[i] === '🍓'){
+            chageArray[i]='🥝';
         }
     }
-    console.log(input);
+    console.log(chageArray);
 }
-changeFruits(['🍌', '🍓', '🍇', '🍓']);
+const array = ['🍌', '🍓', '🍇', '🍓'];
+console.log(array);
+changeFruits(array);
+
+// 재사용성 높이기
+
+// function changeFruits(input, from, to){
+//     const chageArray = Array.from(input);
+//     for (let i = 0; i < chageArray.length; i++){
+//         if (chageArray[i] === from){
+//             chageArray[i] = to;
+//         }
+//     }
+//     console.log(chageArray);
+// }
+// const array = ['🍌', '🍓', '🍇', '🍓'];
+// changeFruits(array,'🍓','🥝');

@@ -3,14 +3,15 @@
  * input: ['🍌', '🥝', '🍇', '🥝']
  * output: 2
  */
-
-function countFruits(input,output){
+function countFruits(input,item){
     let count = 0;
-    for(let i = 0; i <= input.length; i++){
-        if (input[i] == output[0]){
+    for(let i = 0; i < input.length; i++){
+        if (input[i] === item){
             count++;
         }
     }
     console.log(count);
 }
-countFruits(['🍌', '🥝', '🍇', '🥝'],['🥝']);
+const array = ['🍌', '🥝', '🍇', '🥝'];
+const item = '🥝';
+countFruits(array,item);

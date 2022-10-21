@@ -15,3 +15,4 @@ function countFruits(input,item){
 const array = ['🍌', '🥝', '🍇', '🥝'];
 const item = '🥝';
 countFruits(array,item);
+// countFruits(['🍌', '🥝', '🍇', '🥝'],'🥝');

@@ -16,3 +16,4 @@ function arrayCommonality(input,search){
 const array1 = ['🍌', '🥝', '🍇'];
 const array2 = ['🍌', '🍓', '🍇', '🍓'];
 arrayCommonality(array1,array2);
+//arrayCommonality(['🍌', '🥝', '🍇'],['🍌', '🍓', '🍇', '🍓']);

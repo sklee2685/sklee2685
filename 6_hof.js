@@ -50,3 +50,51 @@ result = products.filter((item)=>{
     return item.name ==='🍪';
 });
 console.log(result);
+
+// Map 배열의 아이템들을 각각 다른 아이템으로 매핑할 수 있는, 변환해서 새로운 배열 생성
+const nums = [1,2,3,4,5];
+result = nums.map((item) => { 
+    return item*2
+});
+console.log(result);
+
+result = nums.map((item) => { 
+    if(item % 2 === 0){
+        return item*2;
+    }else{
+        return item;
+    }
+});
+console.log(result);
+
+// Flatmap: 중첩되는 배열들을 풀어서 배열안에 있던 값을 나열한다.
+// ex) A[1,2], B[3,4]라는 배열을 가지고 있을때, 
+//Flatmap을 사용하면 [1,2,3,4]라는 배열값을 얻을수 있다.
+result = nums.map((item) => [1,2]);
+console.log(result);
+
+result = nums.flatMap((item) => [1,2]);
+console.log(result);
+
+// sort 배열의 아이템을 정렬
+// 문자열 형태의 오른차순으로 요소를 정렬함(기존의 배열을 수정)
+const text = ['hi','abc'];
+text.sort();
+console.log(text);
+
+// 하지만 숫자형태의 데이터에서 사용하면 다음과 같이 이상하게 나온다
+const numbers = [0,4,2,5,1,3,6,10,20];
+numbers.sort();
+console.log(numbers);
+
+// 이를 해결하기 위해서 원하는 비교대상을 콜백에 전달해주면 된다.
+// 여기서 a-b가 음수이면 a가 앞으로 정렬(오름차순) 양수이면 b가 앞으로 정렬(내림차순)된다.
+numbers.sort((a,b) => a-b);
+console.log(numbers);
+
+// reduce 배열의 요소들을 하나씩 접어서 값을 하나로 만듬
+result = [1,2,3,4,5].reduce((sum,value) => {
+    sum += value;
+    console.log(sum);
+    return sum;
+},0);

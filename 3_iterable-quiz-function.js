@@ -6,7 +6,6 @@
  * callback: 콜백함수
  */
 
-
 function makeIterator(initalValue,maxValue,callback){
     return{
         [Symbol.iterator]() {
@@ -14,12 +13,12 @@ function makeIterator(initalValue,maxValue,callback){
             return {
                 next(){
                     return {value: callback(num++) ,done: num>maxValue }
-                }
-            }
+                },
+            };
         },
-    }
-}
+    };
+};
 const multiple = makeIterator(0,20,(num)=> num *2);
 for(const nums of multiple) {
     console.log(nums);
-}
+};

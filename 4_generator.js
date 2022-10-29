@@ -28,10 +28,10 @@ next = multiple.next()
 console.log(next.value,next.done);
 
 // next를 더이상 하지 않을때 사용 이걸 사용하면 done값이 true로 바뀜
-//multiple.return();
+multiple.return();
 
 // 에러를 인위적으로 발생시킬 수 있음
-//multiple.throw('Error');
+multiple.throw('Error');
 
 next = multiple.next();
 console.log(next.value,next.done);
